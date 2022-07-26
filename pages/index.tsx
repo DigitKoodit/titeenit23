@@ -1,9 +1,11 @@
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Countdown from 'components/Countdown';
 
-const Home: NextPage = () => {
+const Home = ({ city }: { city: string }) => {
   const titeenitStartDate = new Date('2023-03-17T18:00:00');
+
+  console.log(city);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
@@ -19,9 +21,23 @@ const Home: NextPage = () => {
         </h1>
 
         <Countdown date={titeenitStartDate} />
+
+        <p className="text-white">{city}</p>
       </main>
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  return {
+    props: {
+      city: req.headers['x-vercel-ip-city'] ?? null,
+    },
+  };
+};
+
+export const config = {
+  runtime: 'experimental-edge',
 };
 
 export default Home;
