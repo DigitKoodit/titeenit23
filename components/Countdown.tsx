@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 const Countdown = ({ date }: { date: Date }) => {
   const diffInMS = date.getTime() - Date.now();
   const diffInDays = Math.ceil(diffInMS / (1000 * 60 * 60 * 24));
