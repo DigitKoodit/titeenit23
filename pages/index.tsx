@@ -1,11 +1,13 @@
 import type { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Countdown from 'components/Countdown';
+import { useState } from 'react';
+import BackgroundImage from 'components/BackgroundImage';
 
 const Home = ({ city }: { city: string }) => {
-  const titeenitStartDate = new Date('2023-03-17T18:00:00');
+  const [buttonText, setButtonText] = useState('Olenko Turussa?');
 
-  console.log(city);
+  const titeenitStartDate = new Date('2023-03-17T18:00:00');
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
@@ -13,17 +15,23 @@ const Home = ({ city }: { city: string }) => {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center -z-20 bg-black space-y-8">
-        <div className="bg-landing bg-cover bg-center blur-sm absolute w-full h-full -z-10" />
-        <h1 className="text-6xl font-bold text-white">
-          Titeenit <span className="text-blue-600">Turussa</span>
-        </h1>
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center space-y-8 text-white">
+        <div>
+          <h1 className="text-6xl font-bold ">
+            Titeenit <span className="text-blue-600">Turussa</span>
+          </h1>
+          <p className="text-xl font-bold">17.-19.3.2023</p>
+        </div>
 
         <Countdown date={titeenitStartDate} />
 
-        <p className="text-white">{city}</p>
+        <button
+          className="bg-blue-500 hover:bg-blue-700  font-bold py-2 px-4 rounded"
+          onClick={() => setButtonText(city === 'Turku' ? 'Kyl maar' : 'Et viel')}>
+          {buttonText}
+        </button>
       </main>
+      <BackgroundImage />
     </div>
   );
 };
