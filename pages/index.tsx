@@ -8,27 +8,32 @@ import Footer from 'components/Footer';
 const Home = ({ city }: { city: string }) => {
   const [buttonText, setButtonText] = useState('Olenko Turussa?');
 
-  const titeenitStartDate = new Date('2023-03-17T18:00:00');
+  const titeenitStartDate = new Date('March 17 2023 18:00:00 GMT+0200');
+
+  const checkCity = () => {
+    const newButtonText = city === 'Turku' ? 'Kyl maar 😎' : 'Et viel 🚌';
+    setButtonText(newButtonText);
+  };
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <Head>
-        <title>Create Next App</title>
+        <title>Turun Titeenit 2023</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center space-y-8 text-white">
+      <main
+        className="flex flex-1 flex-col items-center justify-center px-20 text-center space-y-8 text-teal-600"
+        style={{ textShadow: '2px 2px 1px #1e293b' }}>
         <div>
-          <h1 className="text-6xl font-bold ">
-            Titeenit <span className="text-blue-600">Turussa</span>
-          </h1>
+          <h1 className="text-6xl font-bold ">Titeenit Turussa</h1>
           <p className="text-xl font-bold">17.-19.3.2023</p>
         </div>
 
         <Countdown date={titeenitStartDate} />
 
         <button
-          className="bg-blue-500 hover:bg-blue-700  font-bold py-2 px-4 rounded"
-          onClick={() => setButtonText(city === 'Turku' ? 'Kyl maar' : 'Et viel')}>
+          className="bg-slate-200 hover:bg-slate-300 transition-colors  font-bold py-2 px-4 rounded"
+          onClick={checkCity}>
           {buttonText}
         </button>
       </main>
