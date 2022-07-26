@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Countdown from 'components/Countdown';
 import { useState } from 'react';
 import BackgroundImage from 'components/BackgroundImage';
+import Footer from 'components/Footer';
 
 const Home = ({ city }: { city: string }) => {
   const [buttonText, setButtonText] = useState('Olenko Turussa?');
@@ -31,6 +32,7 @@ const Home = ({ city }: { city: string }) => {
           {buttonText}
         </button>
       </main>
+      <Footer />
       <BackgroundImage />
     </div>
   );
