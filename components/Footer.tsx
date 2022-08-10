@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="w-100 flex py-4 space-x-8">
       <a href="https://digit.fi">
         <Image
-          src="https://digit.fi/uploads/20190905/logo.svg"
+          src="https://digit.fi/digit.svg"
           width={logoSize}
           height={logoSize}
           className="aspect-square object-contain"
