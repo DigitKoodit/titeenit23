@@ -6,6 +6,7 @@ import BackgroundImage from 'components/BackgroundImage';
 import Footer from 'components/Footer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import LanguageSelector from 'components/LanguageSelector';
 
 const Home = () => {
   const { t } = useTranslation('common');
@@ -28,6 +29,7 @@ const Home = () => {
         <title>{t('title')}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <LanguageSelector />
       <main
         className="flex flex-1 flex-col items-center justify-center px-20 text-center space-y-8 text-teal-600"
         style={{ textShadow: '2px 2px 1px #1e293b' }}>
