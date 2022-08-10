@@ -10,6 +10,7 @@ export default function handler(req: NextRequest) {
   if (city === 'Turku') {
     return new Response(
       JSON.stringify({
+        fromTurku: true,
         message: 'Kyl maar 😎',
       }),
       {
@@ -23,6 +24,7 @@ export default function handler(req: NextRequest) {
 
   return new Response(
     JSON.stringify({
+      fromTurku: false,
       message: 'Et viel 🚌',
     }),
     {
