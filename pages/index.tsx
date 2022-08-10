@@ -1,18 +1,19 @@
-import type { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Countdown from 'components/Countdown';
 import { useState } from 'react';
 import BackgroundImage from 'components/BackgroundImage';
 import Footer from 'components/Footer';
 
-const Home = ({ city }: { city: string }) => {
-  const [buttonText, setButtonText] = useState('Olenko Turussa?');
+const Home = () => {
+  const [buttonText, setButtonText] = useState('');
 
   const titeenitStartDate = new Date('March 17 2023 18:00:00 GMT+0200');
 
-  const checkCity = () => {
-    const newButtonText = city === 'Turku' ? 'Kyl maar 😎' : 'Et viel 🚌';
-    setButtonText(newButtonText);
+  const checkCity = async () => {
+    const fromTurkuCheckResponse = await fetch('/api/requestFromTurku');
+    const fromTurkuCheck = await fromTurkuCheckResponse.json();
+
+    setButtonText(fromTurkuCheck.message);
   };
 
   return (
@@ -31,28 +32,19 @@ const Home = ({ city }: { city: string }) => {
 
         <Countdown date={titeenitStartDate} />
 
-        <button
-          className="bg-slate-200 hover:bg-slate-300 transition-colors  font-bold py-2 px-4 rounded"
-          onClick={checkCity}>
-          {buttonText}
-        </button>
+        <div>
+          <button
+            className="bg-slate-200 hover:bg-slate-300 transition-colors  font-bold py-2 px-4 my-4 rounded"
+            onClick={checkCity}>
+            Olenko Turussa?
+          </button>
+          <p className="text-2xl font-bold">{buttonText}</p>
+        </div>
       </main>
       <Footer />
       <BackgroundImage />
     </div>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  return {
-    props: {
-      city: req.headers['x-vercel-ip-city'] ?? null,
-    },
-  };
-};
-
-export const config = {
-  runtime: 'experimental-edge',
 };
 
 export default Home;
