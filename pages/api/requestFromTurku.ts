@@ -1,10 +1,11 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest } from 'next';
 
 export const config = {
   runtime: 'experimental-edge',
 };
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default function handler(req: NextApiRequest) {
+  console.log(req);
   const city = req.headers['x-vercel-ip-city'] ?? null;
 
   if (city === 'Turku') {
