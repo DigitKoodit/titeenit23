@@ -5,7 +5,6 @@ export const config = {
 };
 
 export default function handler(req: NextRequest) {
-  console.log(req.headers.get('x-vercel-ip-city'));
   const city = req.headers.get('x-vercel-ip-city') ?? null;
 
   if (city === 'Turku') {
