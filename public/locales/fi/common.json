@@ -4,5 +4,6 @@
     "in-turku-button": "Olenko Turussa?",
     "yes-you-are": "Kyl maar 😎",
     "not-yet": "Et viel 🚌",
-    "x-days-from-now": "{{days, number}} päivän päästä"
+    "x-days-from-now": "{{days, number}} päivän päästä",
+    "something-went-wrong": "Jotain meni pieleen 😞"
 }

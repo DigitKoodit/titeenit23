@@ -4,5 +4,6 @@
     "in-turku-button": "Är jag i Åbo?",
     "yes-you-are": "Åh ja 😎",
     "not-yet": "Inte än 🚌",
-    "x-days-from-now": "{{days, number}} dagar från nu"
+    "x-days-from-now": "{{days, number}} dagar från nu",
+    "something-went-wrong": "Något gick fel 😞"
 }

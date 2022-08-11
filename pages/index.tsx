@@ -19,6 +19,12 @@ const Home = () => {
     const cityCheckresponse = await fetch('/api/requestFromTurku');
     const cityCheck = await cityCheckresponse.json();
 
+    if (!cityCheckresponse.ok) {
+      console.log(cityCheck);
+      setButtonText(t('something-went-wrong'));
+      return;
+    }
+
     const newButtonText = cityCheck.fromTurku ? t('yes-you-are') : t('not-yet');
     setButtonText(newButtonText);
   };
