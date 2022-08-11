@@ -30,7 +30,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex relative min-h-screen min-w-fit flex-col items-center justify-center">
       <Head>
         <title>{t('title')}</title>
         <link rel="icon" href="/favicon.ico" />
