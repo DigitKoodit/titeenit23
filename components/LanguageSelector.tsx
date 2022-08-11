@@ -26,7 +26,7 @@ const LanguageSelector = () => {
     <nav className="fixed top-5 right-5 text-teal-600 font-bold flex flex-col">
       <ul>
         {locales.map((lang) => (
-          <li>
+          <li key={lang}>
             <a
               className={`${locale === lang ? 'text-teal-900' : ''} cursor-pointer`}
               onClick={() => changeLocale(lang)}>
