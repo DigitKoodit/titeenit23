@@ -9,6 +9,7 @@ const Footer = () => {
           src="https://digit.fi/digit.svg"
           width={logoSize}
           height={logoSize}
+          alt="Digit ry"
           className="aspect-square object-contain"
         />
       </a>
@@ -17,6 +18,7 @@ const Footer = () => {
           src="https://datateknologerna.org/static/images/albin_black.png"
           width={logoSize}
           height={logoSize}
+          alt="Datateknologerna vid Åbo Akademi rf"
           className="aspect-square object-contain"
         />
       </a>
