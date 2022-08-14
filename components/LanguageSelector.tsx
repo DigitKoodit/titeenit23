@@ -29,6 +29,7 @@ const LanguageSelector = () => {
           <li key={lang}>
             <a
               className={`${locale === lang ? 'text-teal-900' : ''} cursor-pointer`}
+              href="#"
               onClick={() => changeLocale(lang)}>
               {flagMap[lang]} {lang.toUpperCase()}
             </a>
