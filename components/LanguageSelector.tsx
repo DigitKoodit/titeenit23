@@ -31,6 +31,7 @@ const LanguageSelector = () => {
               className={`${
                 locale === lang ? "text-neutral-100" : ""
               } cursor-pointer`}
+              href="#"
               onClick={() => changeLocale(lang)}
             >
               {flagMap[lang]} {lang.toUpperCase()}
