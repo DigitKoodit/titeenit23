@@ -23,7 +23,7 @@ const LanguageSelector = () => {
   const { locale, locales = [] } = router;
 
   return (
-    <nav className="fixed top-5 right-5 text-orange-500 font-bold flex flex-col">
+    <nav className="fixed top-5 right-5 text-orange-500 font-bold flex flex-col font-mono">
       <ul>
         {locales.map((lang) => (
           <li key={lang}>
