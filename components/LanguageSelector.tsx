@@ -1,14 +1,14 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 type FlagMap = {
   [key: string]: string;
 };
 
 const flagMap: FlagMap = {
-  fi: '🇫🇮',
-  en: '🇬🇧',
-  sv: '🇸🇪',
+  fi: "🇫🇮",
+  en: "🇬🇧",
+  sv: "🇸🇪",
 };
 
 const LanguageSelector = () => {
@@ -23,13 +23,16 @@ const LanguageSelector = () => {
   const { locale, locales = [] } = router;
 
   return (
-    <nav className="fixed top-5 right-5 text-teal-600 font-bold flex flex-col">
+    <nav className="fixed top-5 right-5 text-orange-500 font-bold flex flex-col font-mono">
       <ul>
         {locales.map((lang) => (
           <li key={lang}>
             <a
-              className={`${locale === lang ? 'text-teal-900' : ''} cursor-pointer`}
-              onClick={() => changeLocale(lang)}>
+              className={`${
+                locale === lang ? "text-neutral-100" : ""
+              } cursor-pointer`}
+              onClick={() => changeLocale(lang)}
+            >
               {flagMap[lang]} {lang.toUpperCase()}
             </a>
           </li>
