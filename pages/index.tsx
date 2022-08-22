@@ -46,7 +46,7 @@ const Home = () => {
         <Countdown date={titeenitStartDate} />
         <div>
           <button
-            className="bg-slate-200 hover:bg-slate-300 text-orange-500 transition-colors font-bold py-2 px-4 my-4 rounded"
+            className="bg-neutral-100 text-orange-700 transition-colors font-bold py-2 px-4 my-4 rounded"
             onClick={checkCity}
           >
             {t("in-turku-button")}
