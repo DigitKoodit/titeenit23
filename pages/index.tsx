@@ -5,7 +5,7 @@ import { useState } from "react";
 import BackgroundImage from "components/BackgroundImage";
 import Footer from "components/Footer";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
+import { useTranslation, Trans } from "next-i18next";
 import LanguageSelector from "components/LanguageSelector";
 
 const Home = () => {
@@ -40,7 +40,7 @@ const Home = () => {
       <main className="flex flex-1 flex-col items-center justify-center px-20 text-center space-y-8 text-neutral-100">
         <div>
           <h1 className="text-6xl font-bold">
-            <span className="text-orange-500">Titeenit</span> Turussa
+            <Trans i18nKey="heading" components={{ 1: <span className="text-orange-500" /> }} />
           </h1>
           <p className="text-xl font-bold text-neutral-100">17.-19.3.2023</p>
         </div>
