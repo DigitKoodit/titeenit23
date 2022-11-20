@@ -28,8 +28,11 @@ const Home = () => {
           </h1>
           <p className="text-xl font-bold text-neutral-100">17.-19.3.2023</p>
         </div>
-        <Countdown date={titeenitStartDate} />
         <CheckCityButton />
+        <div className="bg-slate-200/30 py-4 px-2 rounded-lg">
+          <p className="text-2xl font-bold">{t('event-info-text')}</p>
+          <p className="text-xl py-2">{t('event-info-text-2')}</p>
+        </div>
       </main>
       <Footer />
       <BackgroundImage />
