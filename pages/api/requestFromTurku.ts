@@ -8,10 +8,13 @@ export default function handler(req: NextRequest) {
   const city = req.headers.get('x-vercel-ip-city') ?? null;
 
   if (city === null) {
-    return new Response(JSON.stringify({ message: 'Could not get city', headers: req.headers }), {
-      status: 500,
-      headers: { 'content-type': 'application/json' },
-    });
+    return new Response(
+      JSON.stringify({ message: 'Could not get city', headers: req.headers }),
+      {
+        status: 500,
+        headers: { 'content-type': 'application/json' },
+      }
+    );
   }
 
   if (city === 'Turku') {
