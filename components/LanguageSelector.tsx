@@ -1,14 +1,14 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 type FlagMap = {
   [key: string]: string;
 };
 
 const flagMap: FlagMap = {
-  fi: "🇫🇮",
-  en: "🇬🇧",
-  sv: "🇸🇪",
+  fi: '🇫🇮',
+  en: '🇬🇧',
+  sv: '🇸🇪',
 };
 
 const LanguageSelector = () => {
@@ -29,7 +29,7 @@ const LanguageSelector = () => {
           <li key={lang}>
             <a
               className={`${
-                locale === lang ? "text-neutral-100" : ""
+                locale === lang ? 'text-neutral-100' : ''
               } cursor-pointer`}
               href="#"
               onClick={() => changeLocale(lang)}
