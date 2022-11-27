@@ -24,7 +24,10 @@ const Home = () => {
       <main className="flex flex-1 flex-col items-center justify-center px-20 text-center space-y-8 text-neutral-100">
         <div>
           <h1 className="text-6xl font-bold">
-            <Trans i18nKey="heading" components={{ 1: <span className="text-orange-500" /> }} />
+            <Trans
+              i18nKey="heading"
+              components={{ 1: <span className="text-orange-500" /> }}
+            />
           </h1>
           <p className="text-xl font-bold text-neutral-100">17.-19.3.2023</p>
         </div>
