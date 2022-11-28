@@ -6,5 +6,7 @@
     "yes-you-are": "Yes sir 😎",
     "not-yet": "Not yet 🚌",
     "x-days-from-now": "{{days, number}} days from now",
-    "something-went-wrong": "Something went wrong 😞"
+    "something-went-wrong": "Something went wrong 😞",
+    "event-info-text": "The most anticipated event of the year for IT students",
+    "event-info-text-2": "A weekend full of competing, networking and fun. Come and join!"
 }
