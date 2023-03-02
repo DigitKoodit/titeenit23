@@ -10,6 +10,9 @@ module.exports = {
         landing:
           'url(https://digit.kuvat.fi/kuvat/2017/TiTeenien%20taistot%202017/114.jpg?img=img2048)',
       },
+      fontFamily: {
+        sans: ['Helvetica', 'Arial', 'sans-serif'],
+      },
     },
   },
   plugins: [],
