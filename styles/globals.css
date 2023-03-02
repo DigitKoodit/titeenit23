@@ -25,6 +25,10 @@ img {
   z-index: -1;
 }
 
+li {
+  list-style-type: none;
+}
+
 .hero-filter {
   position: absolute;
   width: 100%;

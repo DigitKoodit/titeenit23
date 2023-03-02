@@ -75,9 +75,9 @@ export const Header = ({ active }: { active: string }) => {
       </HeaderLink>
       <HeaderLink href="#nettilaji" active={active}>
         <FontAwesomeIcon icon={faTelegram} size="1x" />
-        <span>Telegram</span>
+        Telegram
       </HeaderLink>
-      <LanguageSelector />
+      <LanguageSelector isHeaderVisible={isOpen} />
     </header>
   );
 };
