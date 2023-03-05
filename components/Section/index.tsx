@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import { Markdown } from './Markdown';
@@ -26,17 +27,7 @@ type ImageItem = {
   height?: number;
 };
 
-type ComponentType = {
-  type: 'component';
-  component: JSX.Element;
-};
-
-export type Item =
-  | LinkItem
-  | TextItem
-  | MarkdownItem
-  | ImageItem
-  | ComponentType;
+export type Item = LinkItem | TextItem | MarkdownItem | ImageItem;
 
 interface SectionProps {
   id: string;
@@ -46,9 +37,6 @@ interface SectionProps {
 }
 
 const ItemRenderer = ({ item }: { item: Item }) => {
-  if (item.type === 'component') {
-    return item.component;
-  }
   if (item.type === 'image') {
     return (
       <Image
@@ -78,6 +66,7 @@ export const Section = ({
   title,
   setIntersection,
 }: SectionProps) => {
+  const { t } = useTranslation('common');
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -97,7 +86,7 @@ export const Section = ({
 
   return (
     <div ref={ref} className="mx-16 flex-grow overflow-hidden min-h-screen">
-      <h2 className="text-center">{title}</h2>
+      <h2 className="text-center">{t(title)}</h2>
       <div className="w-full flex space-x-4 text-left">
         {items.map((item, i) => (
           <div key={item.type + i} className="relative p-4 flex-1">

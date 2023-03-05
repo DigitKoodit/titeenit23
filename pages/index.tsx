@@ -1,20 +1,31 @@
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import type { GetStaticProps } from 'next';
 import Head from 'next/head';
-import BackgroundImage from 'components/BackgroundImage';
 import Footer from 'components/Footer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation, Trans } from 'next-i18next';
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import { useTranslation } from 'next-i18next';
 import { Header } from 'components/Header';
-import { Section } from 'components/Section';
-import { sections } from 'data/sections';
+import { Item, Section } from 'components/Section';
 import { useState } from 'react';
 import { Hero } from 'components/Hero';
+import { SponsorSection } from 'components/Sponsors';
+import { ScheduleSection } from 'components/Timetable/ScheduleSection';
+import { schedule } from 'data/schedule';
+import { TimetableData } from 'components/Timetable';
+import { sections } from 'data/sections';
 
-const Home = () => {
+const Home = ({
+  schedule,
+  sectionData,
+}: {
+  schedule: TimetableData[];
+  sectionData: Record<string, Item[]>;
+}) => {
   const { t } = useTranslation('common');
 
   const [active, setActive] = useState('info');
+
+  const sectionKeys = Object.keys(sectionData);
 
   return (
     <div className="flex relative min-h-screen min-w-fit flex-col items-center justify-center bg-black">
@@ -26,13 +37,21 @@ const Home = () => {
       <Header active={active} />
       <Hero />
       <main className="flex flex-1 flex-col items-center justify-center px-20 text-center space-y-8 text-neutral-100">
-        <Section
-          id="online_challenge"
-          items={sections}
-          title={t('common.online_challenge')}
-          setIntersection={setActive}
-        />
+        {sectionKeys.map((key) => {
+          const section = sectionData[key];
+          return (
+            <Section
+              key={key}
+              id={key}
+              items={section}
+              title={t(key)}
+              setIntersection={setActive}
+            />
+          );
+        })}
+        <ScheduleSection data={schedule} />
       </main>
+      <SponsorSection />
       <Footer />
     </div>
   );
@@ -42,6 +61,8 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ['common'])),
+      sectionData: sections,
+      schedule,
     },
   };
 };

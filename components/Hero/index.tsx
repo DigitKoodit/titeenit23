@@ -7,10 +7,10 @@ export const Hero = () => {
         <h1>Titeenit</h1>
         <h2>17.-19.3.2023 Turussa</h2>
       </div>
-      <div className="hero-image w-1/2 relative h-full">
+      <div className="hero-image w-1/2 relative h-full z-10">
         <Image
           loader={({ src }) => src}
-          src="/linna.png"
+          src="/images/linna.png"
           alt="turun linna"
           fill
           priority

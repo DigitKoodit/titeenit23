@@ -37,7 +37,7 @@ export const Header = ({ active }: { active: string }) => {
 
   const { locale } = router;
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useTranslation(locale);
+  const { t } = useTranslation();
   const handleScroll = () => {
     if (window.scrollY > 100) {
       return setIsOpen(true);
@@ -50,7 +50,7 @@ export const Header = ({ active }: { active: string }) => {
 
   const className = useMemo(() => {
     const initial =
-      'z-10 w-full flex items-center justify-center px-6 py-4 font-sans text-2xl text-white fixed top-0 transition-colors ease-in duration-200';
+      'z-[1000] w-full flex items-center justify-center px-6 py-4 font-sans text-2xl text-white fixed top-0 left-0 transition-colors ease-in duration-200';
 
     if (isOpen) {
       return `${initial} bg-white text-black`;

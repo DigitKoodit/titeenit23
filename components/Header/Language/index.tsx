@@ -41,7 +41,13 @@ export const LanguageSelector = ({
               .filter((el) => el !== locale)
               .map((language) => (
                 <li key={language}>
-                  <a href="#" onClick={() => changeLocale(language)}>
+                  <a
+                    href="#"
+                    onClick={() => changeLocale(language)}
+                    className={`${
+                      isHeaderVisible ? 'text-black' : 'text-white'
+                    }`}
+                  >
                     {language}
                   </a>
                 </li>
