@@ -11,7 +11,7 @@ export const Hamburger = ({
 }) => {
   return (
     <button
-      className={`container ${open ? 'change' : ''}`}
+      className={`container ${open ? 'change' : ''} sm:hidden inline-block`}
       onClick={() => setOpen(!open)}
     >
       <div className={`bar1 ${color}`}></div>

@@ -10,17 +10,9 @@ import { useState } from 'react';
 import { Hero } from 'components/Hero';
 import { SponsorSection } from 'components/Sponsors';
 import { ScheduleSection } from 'components/Timetable/ScheduleSection';
-import { schedule } from 'data/schedule';
-import { TimetableData } from 'components/Timetable';
 import { sections } from 'data/sections';
 
-const Home = ({
-  schedule,
-  sectionData,
-}: {
-  schedule: TimetableData[];
-  sectionData: Record<string, Item[]>;
-}) => {
+const Home = ({ sectionData }: { sectionData: Record<string, Item[]> }) => {
   const { t } = useTranslation('common');
 
   const [active, setActive] = useState('info');
@@ -49,7 +41,7 @@ const Home = ({
             />
           );
         })}
-        <ScheduleSection data={schedule} />
+        <ScheduleSection />
         <SponsorSection />
       </main>
       <Footer />
@@ -62,7 +54,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     props: {
       ...(await serverSideTranslations(locale as string, ['common'])),
       sectionData: sections,
-      schedule,
     },
   };
 };
