@@ -4,7 +4,7 @@ import Image from 'next/image';
 export const SponsorSection = () => {
   const { t } = useTranslation('common');
   return (
-    <div className="w-3/4 text-center">
+    <div className="text-center">
       <div>
         <h2>{t('main_sponsor')}</h2>
         <div className="relative w-full h-60 z-10">

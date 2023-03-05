@@ -3,7 +3,7 @@ import Image from 'next/image';
 export const Hero = () => {
   return (
     <div className="h-[837px] flex relative items-center w-full">
-      <div className="hero-text w-1/2 text-center flex justify-center items-center flex-col z-[1]">
+      <div className="hero-text w-1/2 text-center flex justify-center items-center flex-col z-[11]">
         <h1>Titeenit</h1>
         <h2>17.-19.3.2023 Turussa</h2>
       </div>

@@ -49,9 +49,9 @@ const Home = ({
             />
           );
         })}
-        <ScheduleSection data={schedule} />
+        {/* <ScheduleSection data={schedule} /> */}
+        <SponsorSection />
       </main>
-      <SponsorSection />
       <Footer />
     </div>
   );

@@ -87,7 +87,7 @@ export const Section = ({
   return (
     <div ref={ref} className="mx-16 flex-grow overflow-hidden min-h-screen">
       <h2 className="text-center">{t(title)}</h2>
-      <div className="w-full flex space-x-4 text-left">
+      <div className="w-full flex space-x-4 text-left flex-col sm:flex-row flex-wrap items-center">
         {items.map((item, i) => (
           <div key={item.type + i} className="relative p-4 flex-1">
             <ItemRenderer item={item} />

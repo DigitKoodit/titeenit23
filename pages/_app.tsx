@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import '../styles/timetable.css';
+import '../styles/hamburger.css';
 import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 
