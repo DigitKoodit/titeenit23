@@ -2,7 +2,6 @@ import { faTelegram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useEventListener from 'hooks/useEventListener';
 import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
 import React, { useMemo, useState } from 'react';
 import { Hamburger } from './Hamburger';
 import { LanguageSelector } from './Language';
