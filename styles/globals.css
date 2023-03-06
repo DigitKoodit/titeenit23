@@ -64,4 +64,9 @@ li {
   .hero-filter::after {
     border-width: 1250px 837px 0 0;
   }
+
+  h2 {
+    font-weight: bold;
+    font-size: 48px;
+  }
 }

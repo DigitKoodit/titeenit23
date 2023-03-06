@@ -99,7 +99,7 @@ const DayColumnPreview = ({
       style={{
         ...(bodyAttributes?.style || {}),
         backgroundSize: `1px ${2 * rowHeight}px`,
-        width: `calc((100% - 5rem) / ${Object.keys(events).length})`,
+        width: `33%`,
       }}
       key={`${day}-${index}`}
     >

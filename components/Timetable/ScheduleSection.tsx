@@ -1,10 +1,29 @@
 import { useTranslation } from 'next-i18next';
-import { useRef } from 'react';
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import Timetable from '.';
 
-export const ScheduleSection = () => {
+export const ScheduleSection = ({
+  setIntersection,
+}: {
+  setIntersection: Dispatch<SetStateAction<string>>;
+}) => {
   const { t } = useTranslation('common');
   const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIntersection('schedule');
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(ref.current);
+  }, [setIntersection]);
 
   return (
     <div
@@ -12,7 +31,7 @@ export const ScheduleSection = () => {
       className="mx-16 flex-grow overflow-hidden min-h-screen w-full"
     >
       <h2 className="text-center">{t('schedule')}</h2>
-      <div className="w-full flex space-x-4 text-left">
+      <div className="w-full flex space-x-4 text-left h-96 overflow-scroll">
         <div className="relative p-4 flex-1 w-full">
           <Timetable
             className="w-full"
@@ -46,7 +65,6 @@ export const ScheduleSection = () => {
               ],
             }}
             hoursInterval={{ from: 0, to: 24 }}
-            style={{ height: '500px' }}
           />
         </div>
       </div>

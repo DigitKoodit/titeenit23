@@ -40,8 +40,8 @@ const Home = ({ sectionData }: { sectionData: Record<string, Item[]> }) => {
             />
           );
         })}
-        <ScheduleSection />
-        <SponsorSection />
+        <ScheduleSection setIntersection={setActive} />
+        <SponsorSection setIntersection={setActive} />
       </main>
       <Footer />
     </div>

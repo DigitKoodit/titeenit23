@@ -1,10 +1,33 @@
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 
-export const SponsorSection = () => {
+export const SponsorSection = ({
+  setIntersection,
+}: {
+  setIntersection: Dispatch<SetStateAction<string>>;
+}) => {
   const { t } = useTranslation('common');
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIntersection('schedule');
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(ref.current);
+  }, [setIntersection]);
+
   return (
-    <div className="text-center">
+    <div ref={ref} className="text-center">
       <div>
         <h2>{t('main_sponsor')}</h2>
         <div className="relative w-full h-60 z-10">

@@ -85,7 +85,7 @@ export const Section = ({
   }, [id, setIntersection]);
 
   return (
-    <div ref={ref} className="mx-16 flex-grow overflow-hidden min-h-screen">
+    <div ref={ref} className="sm:mx-16 flex-grow overflow-hidden min-h-full">
       <h2 className="text-center">{t(title)}</h2>
       <div className="w-full flex space-x-4 text-left flex-col sm:flex-row flex-wrap items-center">
         {items.map((item, i) => (

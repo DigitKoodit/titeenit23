@@ -18,7 +18,9 @@ export const LanguageSelector = ({
   };
 
   return (
-    <div className={`px-10 text-2xl`}>
+    <div
+      className={`sm:py-4 sm:px-10 text-2xl sm:relative sm:top-0 sm:right-0 absolute top-4 right-4`}
+    >
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`space-x-2 flex flex-nowrap ${
@@ -31,7 +33,11 @@ export const LanguageSelector = ({
         </span>
       </button>
       {isOpen && (
-        <div className="flex flex-col font-mono items-center pb-4 absolute ml-8 text-inherit">
+        <div
+          className={`${
+            isHeaderVisible ? 'sm:bg-white rounded border border-gray-500' : ''
+          } flex flex-col font-mono items-end sm:items-center absolute top-14 w-max sm:px-8 text-right`}
+        >
           {locales &&
             locales
               .filter((el) => el !== locale)

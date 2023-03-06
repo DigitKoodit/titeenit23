@@ -28,7 +28,7 @@ const HeaderLink = ({
   let openClassName = '';
 
   if (open) {
-    openClassName = 'block';
+    openClassName = 'flex';
   } else {
     openClassName = 'hidden';
   }
@@ -39,7 +39,7 @@ const HeaderLink = ({
       href={href}
       target={!isInternal ? '_blank' : ''}
       rel="noopener noreferrer"
-      className={`py-4 px-10 space-x-2 sm:flex flex-nowrap ${openClassName} ${activeClassName} ${props.className}`}
+      className={`py-4 px-10 space-x-2 sm:w-max w-full sm:flex justify-center flex-nowrap ${openClassName} ${activeClassName} ${props.className}`}
     >
       {children}
     </a>
@@ -62,7 +62,7 @@ export const Header = ({ active }: { active: string }) => {
 
   const className = useMemo(() => {
     const initial =
-      'z-[1000] w-full flex items-center justify-center px-6 py-4 font-sans text-2xl fixed top-0 left-0 transition-colors ease-in duration-200 sm:flex-row flex-col';
+      'z-[1000] w-full flex min-h-[66px] items-center px-6 py-4 font-sans text-2xl fixed top-0 left-0 transition-colors ease-in duration-200 sm:flex-row flex-col';
 
     if (hasScrolled || open) {
       return `${initial} bg-white text-black`;
@@ -76,7 +76,7 @@ export const Header = ({ active }: { active: string }) => {
       <Hamburger
         open={open}
         setOpen={setOpen}
-        color={open ? 'dark' : 'light'}
+        color={open || hasScrolled ? 'dark' : 'light'}
       />
       <HeaderLink
         id="online_challenge"
@@ -96,10 +96,10 @@ export const Header = ({ active }: { active: string }) => {
         {t('sponsors')}
       </HeaderLink>
       <HeaderLink href="#nettilaji" active={active} open={open}>
-        <Telegram color={open ? '#000' : '#fff'} />
+        <Telegram color={open ? '#333' : '#fff'} />
         Telegram
       </HeaderLink>
-      <LanguageSelector isHeaderVisible={open} />
+      <LanguageSelector isHeaderVisible={open || hasScrolled} />
     </header>
   );
 };
