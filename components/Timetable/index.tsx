@@ -165,7 +165,7 @@ export const TimeTable = ({
     window?.addEventListener('resize', handleResize, false);
   }, []);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     setDimensions({
       width: window?.innerWidth || 0,
       height: window?.innerHeight || 0,
@@ -176,7 +176,7 @@ export const TimeTable = ({
     if (ref.current) {
       const totalHeight = (ref.current as HTMLDivElement).clientHeight;
       setRowHeight(
-        getRowHeight(hoursInterval.from, hoursInterval.to, totalHeight)
+        getRowHeight(hoursInterval.from, hoursInterval.to, totalHeight * 2)
       );
     }
   }, [hoursInterval, dimensions]);
