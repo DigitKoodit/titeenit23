@@ -1,7 +1,6 @@
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { Globe } from '../icons';
 
 export const LanguageSelector = ({
   isHeaderVisible,
@@ -22,14 +21,11 @@ export const LanguageSelector = ({
     <div className={`px-10 text-2xl`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`space-x-2 ${isHeaderVisible ? 'text-black' : 'text-white'}`}
+        className={`space-x-2 flex flex-nowrap ${
+          isHeaderVisible ? 'text-black' : 'text-white'
+        }`}
       >
-        <FontAwesomeIcon
-          className={`${isHeaderVisible ? 'text-black' : 'text-white'}`}
-          fill={isHeaderVisible ? 'black' : 'white'}
-          icon={faGlobe}
-          size="1x"
-        />
+        <Globe color={isHeaderVisible ? '#000' : '#fff'} />
         <span className={`${isHeaderVisible ? 'text-black' : 'text-white'}`}>
           {locale}
         </span>

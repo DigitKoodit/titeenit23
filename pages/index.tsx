@@ -1,4 +1,3 @@
-import '@fortawesome/fontawesome-svg-core/styles.css';
 import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Footer from 'components/Footer';

@@ -8,9 +8,6 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@fortawesome/free-brands-svg-icons": "^6.3.0",
-    "@fortawesome/free-solid-svg-icons": "^6.3.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "date-fns": "^2.29.3",
     "lodash": "^4.17.21",
     "next": "latest",
@@ -23,6 +20,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.191",
     "@types/node": "17.0.35",
+    "@types/prop-types": "^15.7.5",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.5",
     "autoprefixer": "^10.4.7",

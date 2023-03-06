@@ -1,9 +1,8 @@
-import { faTelegram } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useEventListener from 'hooks/useEventListener';
 import { useTranslation } from 'next-i18next';
 import React, { useMemo, useState } from 'react';
 import { Hamburger } from './Hamburger';
+import { Telegram } from './icons';
 import { LanguageSelector } from './Language';
 
 interface HeaderLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
@@ -40,7 +39,7 @@ const HeaderLink = ({
       href={href}
       target={!isInternal ? '_blank' : ''}
       rel="noopener noreferrer"
-      className={`py-4 px-10 space-x-2 sm:block ${openClassName} ${activeClassName} ${props.className}`}
+      className={`py-4 px-10 space-x-2 sm:flex flex-nowrap ${openClassName} ${activeClassName} ${props.className}`}
     >
       {children}
     </a>
@@ -63,7 +62,7 @@ export const Header = ({ active }: { active: string }) => {
 
   const className = useMemo(() => {
     const initial =
-      'z-[1000] w-full flex items-center justify-center px-6 py-4 font-sans text-2xl text-white fixed top-0 left-0 transition-colors ease-in duration-200 sm:flex-row flex-col';
+      'z-[1000] w-full flex items-center justify-center px-6 py-4 font-sans text-2xl fixed top-0 left-0 transition-colors ease-in duration-200 sm:flex-row flex-col';
 
     if (hasScrolled || open) {
       return `${initial} bg-white text-black`;
@@ -77,7 +76,7 @@ export const Header = ({ active }: { active: string }) => {
       <Hamburger
         open={open}
         setOpen={setOpen}
-        color={open || hasScrolled ? 'dark' : 'light'}
+        color={open ? 'dark' : 'light'}
       />
       <HeaderLink
         id="online_challenge"
@@ -97,10 +96,10 @@ export const Header = ({ active }: { active: string }) => {
         {t('sponsors')}
       </HeaderLink>
       <HeaderLink href="#nettilaji" active={active} open={open}>
-        <FontAwesomeIcon icon={faTelegram} size="1x" />
+        <Telegram color={open ? '#000' : '#fff'} />
         Telegram
       </HeaderLink>
-      <LanguageSelector isHeaderVisible={hasScrolled} />
+      <LanguageSelector isHeaderVisible={open} />
     </header>
   );
 };

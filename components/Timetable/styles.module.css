@@ -5,7 +5,7 @@
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   color: #efefef;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .day {
