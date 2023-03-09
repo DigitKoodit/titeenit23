@@ -1,6 +1,7 @@
 import { Item } from 'components/Section';
+import { TFunction } from 'next-i18next';
 
-export const sections: Record<string, Item[]> = {
+export const sections = (t: TFunction): Record<string, Item[]> => ({
   online_challenge: [
     {
       type: 'markdown',
@@ -31,16 +32,8 @@ export const sections: Record<string, Item[]> = {
   ],
   info: [
     {
-      type: 'text',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam turpis, malesuada sit amet vestibulum eget, ornare non odio. Sed semper sem vel iaculis aliquet. Mauris interdum in nunc sed lacinia. Quisque fringilla, mi at placerat placerat, tellus diam pharetra quam, sit amet fermentum augue mi eu sapien. Sed elementum enim vitae hendrerit tristique. Ut a orci sit amet metus blandit euismod vitae at magna. Curabitur lobortis dolor et turpis aliquet, ut elementum odio vulputate. Aenean molestie auctor est, quis ullamcorper dolor rhoncus elementum. ',
-    },
-    {
-      type: 'image',
-      url: '/images/online_challenge.png',
-      alt: 'Online Challenge',
-      width: 427,
-      height: 255,
+      type: 'markdown',
+      content: t('info_content'),
     },
   ],
-};
+});

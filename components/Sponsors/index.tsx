@@ -36,7 +36,7 @@ export const SponsorSection = ({
       </div>
       <div className="flex flex-wrap">
         <h2 className="w-full">{t('sponsors')}</h2>
-        <div className="w-1/2 z-10 p-4">
+        <div className="sm:w-1/2 w-full z-10 p-4">
           <div
             className="relative w-full"
             style={{ aspectRatio: '3.62671232877' }}
@@ -48,13 +48,13 @@ export const SponsorSection = ({
             />
           </div>
         </div>
-        <div className="relative w-1/2 z-10  h-40">
+        <div className="relative sm:w-1/2 w-full z-10 h-40">
           <Image src="/images/beanbakers.svg" alt="beanbakers logo" fill />
         </div>
-        <div className="relative w-1/2 z-10 h-40">
+        <div className="relative sm:w-1/2 w-full z-10 h-40">
           <Image src="/images/taiste.svg" alt="taiste logo" fill />
         </div>
-        <div className="relative w-1/2 z-10  h-40">
+        <div className="relative sm:w-1/2 w-full z-10 h-40">
           <Image src="/images/TEK_logo_RGB_turkoosi.svg" alt="TEK logo" fill />
         </div>
       </div>

@@ -11,8 +11,9 @@ import { SponsorSection } from 'components/Sponsors';
 import { ScheduleSection } from 'components/Timetable/ScheduleSection';
 import { sections } from 'data/sections';
 
-const Home = ({ sectionData }: { sectionData: Record<string, Item[]> }) => {
+const Home = () => {
   const { t } = useTranslation('common');
+  const sectionData = sections(t);
 
   const [active, setActive] = useState('info');
 
@@ -52,7 +53,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ['common'])),
-      sectionData: sections,
     },
   };
 };

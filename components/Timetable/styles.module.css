@@ -1,16 +1,14 @@
 .time_table_wrapper {
   display: flex;
-  flex-wrap: nowrap;
-  height: 100%;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   color: #efefef;
   overflow: scroll;
+  height: 1040px;
 }
 
 .day {
   display: flex;
-  flex-wrap: nowrap;
   flex-direction: column;
   position: relative;
   background-color: #fff;
@@ -51,4 +49,10 @@
 .event_info {
   line-height: initial;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .day:not(:first-child) {
+    min-width: calc(100% - 80px) !important;
+  }
 }

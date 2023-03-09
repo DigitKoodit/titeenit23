@@ -31,7 +31,7 @@ export const DayHeaderPreview: React.FC<DayHeaderPreviewProps> = ({
   return (
     <div
       {...otherProperties}
-      style={{ ...(otherProperties?.style || {}), height: `${rowHeight}px` }}
+      style={{ ...(otherProperties?.style || {}), height: `80px` }}
     >
       {getDefaultDayLabel(day)}
     </div>
@@ -98,7 +98,7 @@ const DayColumnPreview = ({
       className={`${classNames.day} ${day} ${bodyAttributes?.className || ''}`}
       style={{
         ...(bodyAttributes?.style || {}),
-        backgroundSize: `1px ${2 * rowHeight}px`,
+        backgroundSize: `1px ${rowHeight}px`,
         width: `33%`,
       }}
       key={`${day}-${index}`}
@@ -132,7 +132,7 @@ export const HoursList = ({
     renderHour({
       hour: `${hour}:00`,
       className: classNames.hour,
-      style: { height: `${rowHeight}px` },
+      style: { minHeight: `40px` },
     })
   );
 };
@@ -174,7 +174,8 @@ export const TimeTable = ({
 
   React.useEffect(() => {
     if (ref.current) {
-      const totalHeight = (ref.current as HTMLDivElement).clientHeight;
+      const totalHeight = 1000;
+
       setRowHeight(
         getRowHeight(hoursInterval.from, hoursInterval.to, totalHeight * 2)
       );
@@ -195,7 +196,7 @@ export const TimeTable = ({
           }`}
           style={{
             ...(headerAttributes?.style || {}),
-            height: `${rowHeight}px`,
+            minHeight: `80px`,
           }}
         >
           {timeLabel}
