@@ -16,6 +16,13 @@ export interface Event {
   startTime: Date;
   endTime: Date;
   type?: string;
+  description: {
+    short: string;
+    long: string;
+  };
+  place?: string;
+  placeLink?: string;
+  color?: string;
   [key: string]: unknown;
 }
 

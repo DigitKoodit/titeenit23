@@ -31,7 +31,7 @@ export const ScheduleSection = ({
       className="mx-16 flex-grow overflow-hidden min-h-screen w-full"
     >
       <h2 className="text-center">{t('schedule')}</h2>
-      <div className="w-full flex space-x-4 text-left h-96 overflow-scroll">
+      <div className="w-full flex space-x-4 text-left h-[700px] overflow-scroll">
         <div className="relative p-4 flex-1 w-full">
           <Timetable
             className="w-full"
@@ -43,6 +43,12 @@ export const ScheduleSection = ({
                   type: 'custom',
                   startTime: new Date('2018-02-23T11:30:00'),
                   endTime: new Date('2018-02-23T13:30:00'),
+                  description: {
+                    short: 'Kuvaus tämä on testi123',
+                    long: 'Kuvaus tämä on testi123',
+                  },
+                  place: 'Paikka',
+                  placeLink: 'https://www.google.com',
                 },
               ],
               saturday: [
@@ -52,6 +58,12 @@ export const ScheduleSection = ({
                   type: 'custom',
                   startTime: new Date('2018-02-23T04:30:00'),
                   endTime: new Date('2018-02-23T08:30:00'),
+                  description: {
+                    short: 'Kuvaus tämä on testi123',
+                    long: 'Kuvaus tämä on testi123',
+                  },
+                  place: 'Paikka',
+                  placeLink: 'https://www.google.com',
                 },
               ],
               sunday: [
@@ -61,6 +73,12 @@ export const ScheduleSection = ({
                   type: 'custom',
                   startTime: new Date('2018-02-23T14:30:00'),
                   endTime: new Date('2018-02-23T20:30:00'),
+                  description: {
+                    short: 'Kuvaus tämä on testi123',
+                    long: 'Kuvaus tämä on testi123',
+                  },
+                  place: 'Paikka',
+                  placeLink: 'https://www.google.com',
                 },
               ],
             }}

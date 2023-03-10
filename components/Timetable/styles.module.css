@@ -17,7 +17,7 @@
 
 .day_title {
   background-color: #34495e;
-  font-size: .7rem;
+  font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   display: flex;
@@ -38,7 +38,7 @@
   position: absolute;
   width: 100%;
   background-color: rgb(18, 205, 177);
-  font-size: .7em;
+  font-size: 1em;
   font-weight: 300;
   justify-content: center;
   display: flex;

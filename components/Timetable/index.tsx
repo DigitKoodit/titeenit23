@@ -4,6 +4,7 @@ import format from 'date-fns/format';
 import range from 'lodash/range';
 import PropTypes from 'prop-types';
 import * as React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from './styles.module.css';
 import type {
   ClassNames,
@@ -20,6 +21,8 @@ import {
   getEventPositionStyles,
   getRowHeight,
 } from './utils';
+import type { Event } from './types';
+import { useTranslation } from 'next-i18next';
 
 export const DEFAULT_HOURS_INTERVAL = { from: 7, to: 24 };
 
@@ -47,17 +50,79 @@ export const HourPreview: React.FC<HourPreviewProps> = ({
   </div>
 );
 
+const EventModal = ({
+  hide,
+  description,
+  name,
+  place,
+  time,
+  placeLink,
+}: {
+  time: string;
+  hide: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+} & Partial<Event>) => {
+  const { t } = useTranslation('common');
+
+  return ReactDOM.createPortal(
+    <div className="fixed top-0 left-0 flex w-full h-full justify-center items-center z-[10000]">
+      <div
+        className="w-full h-full fixed top-0 left-0 bg-black opacity-60 z-10"
+        onClick={(e) => hide(e)}
+      />
+      <div className="p-8 bg-white z-20 text-black flex flex-col space-y-4 w-96">
+        <button className=" self-end">Close</button>
+        <div className="space-y-2">
+          <h3 className="text-black">{name}</h3>
+          <p className="text-black">
+            {t('time')}: {time}
+          </p>
+          <p className="text-black">
+            {t('place')}: {place}
+          </p>
+          <p className="text-black">{description?.long}</p>
+        </div>
+      </div>
+    </div>,
+    document.body
+  );
+};
+
 export const EventPreview: React.FC<EventPreviewProps> = ({
   event,
   defaultAttributes,
   classNames,
 }) => {
+  const [isExpanded, setIsExpanded] = React.useState(false);
   return (
-    <div {...defaultAttributes} title={event.name} key={event.id}>
+    <div
+      {...defaultAttributes}
+      title={event.name}
+      key={event.id}
+      onClick={() => {
+        setIsExpanded(true);
+      }}
+    >
       <span className={classNames.event_info}>{event.name}</span>
       <span className={classNames.event_info}>
         {format(event.startTime, 'HH:mm')} - {format(event.endTime, 'HH:mm')}
       </span>
+      <a href={event.placeLink} className={classNames.event_info}>
+        @{event.place}
+      </a>
+      <p className="text-center">{event.description.short}</p>
+      {isExpanded && (
+        <EventModal
+          {...event}
+          time={`${format(event.startTime, 'HH:mm')} - ${format(
+            event.endTime,
+            'HH:mm'
+          )}`}
+          hide={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+            e.stopPropagation();
+            setIsExpanded(false);
+          }}
+        />
+      )}
     </div>
   );
 };
@@ -67,17 +132,28 @@ export const EventsList = ({
   day,
   hoursInterval,
   rowHeight,
-  renderEvent,
+  renderEvent: RenderEvent,
 }: EventsListProps) => {
-  return (events[day] || []).map((event) =>
-    renderEvent({
-      event,
-      defaultAttributes: {
-        className: `${classNames.event} ${classNames.type}`,
-        style: getEventPositionStyles({ event, hoursInterval, rowHeight }),
-      },
-      classNames: classNames as ClassNames,
-    })
+  return (
+    <>
+      {(events[day] || []).map((event) => (
+        <RenderEvent
+          key={event.id}
+          {...{
+            event,
+            defaultAttributes: {
+              className: `${classNames.event} ${classNames.type}`,
+              style: getEventPositionStyles({
+                event,
+                hoursInterval,
+                rowHeight,
+              }),
+            },
+            classNames: classNames as ClassNames,
+          }}
+        />
+      ))}
+    </>
   );
 };
 
@@ -111,14 +187,13 @@ const DayColumnPreview = ({
           headerAttributes?.className || ''
         }`,
       })}
-
-      {EventsList({
-        events,
-        day,
-        renderEvent,
-        hoursInterval,
-        rowHeight,
-      })}
+      <EventsList
+        events={events}
+        day={day}
+        renderEvent={renderEvent}
+        hoursInterval={hoursInterval}
+        rowHeight={rowHeight}
+      />
     </div>
   );
 };
