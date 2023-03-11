@@ -50,7 +50,13 @@ Vincit toivottaa titeenit lämpimästi tervetulleeksi toimistovierailulle! Viera
       endTime: new Date('2023-03-18T10:30:00'),
       description: {
         short: 'Goforen tarjoama aamupala. Vaatii ilmottautumisen.',
-        long: 'TBA',
+        long: `Hyvää huomista täältä Kauppatorin laidalta Goforen toimistolta!
+
+Oletko miettinyt, millaista arki it-alan konsulttifirmassa on? Tervetuloa tutustumaan Goforeen ja tapaamaan goforelaisia aamiaisen merkeissä lauantaiaamuna.
+
+Gofore Turun toimisto on vuonna 2018 perustettu vauhdilla kasvava osaajajoukko, jolle on tärkeää toteuttaa arkeaan startup- hengessä ja suurella sydämellä. Gofore on yli 1300 työntekijän digitaalisen muutoksen asiantuntijatalo, jolta löytyy Turun lisäksi toimistoja ympäri Suomen ja myös ulkomailta. Päivittäisessä tekemisessä korostuvat vahvat arvot ja työkulttuurimme. Me haluamme säteillä hyvää ympärillemme oli sitten kyse johdon konsultoinnista, koodauksesta, muotoilusta tai esimerkiksi testauksesta ja laadunvarmistuksesta.
+
+Tarjolla aamupalaa, jonka voimalla jaksaa jatkaa päivän taistoihin. Varsinaista isompaa virallista ohjelmaa ei ole tiedossa Goforen lyhyttä esittelyä lukuun ottamatta. Tiedossa siis vapaamuotoista hengailua ja asiantuntijamme ovat paikan päällä juttelemassa ja vastailemassa kysymyksiinne.`,
       },
       place: 'Goforen toimisto',
       placeLink: 'https://goo.gl/maps/GfrV1RUiFkRFbobcA',
