@@ -8,5 +8,11 @@
     "x-days-from-now": "{{days, number}} dagar från nu",
     "something-went-wrong": "Något gick fel 😞",
     "event-info-text": "Årets mest efterlängtade evenemang för IT-studenter",
-    "event-info-text-2": "Ett veckoslut fyllt av tävlande, nätverkande och annat kul. Kom med!"
+    "event-info-text-2": "Ett veckoslut fyllt av tävlande, nätverkande och annat kul. Kom med!",
+    "online_challenge": "Online utmaning",
+    "info": "Var, vad, va?",
+    "schedule": "Schema",
+    "sponsors": "Sponsorer",
+    "main_sponsor": "Huvudsponsor",
+    "info_content": "Titeenit, eller titanernas kamp, är ett evenemang som sammanför alla informationsteknologigillen i Finland. Titeenit hålls i en annan stad varje år, och i år har Åbo fått äran att vara värd för evenemanget. \n Helgen inleds på fredagen med en dag för att umgås och lära känna varandra. Huvudhändelsen blir dock lördagens Titeenilajit, där ITT-städerna tävlar mot varandra i de mest kluriga tävlingarna. Det kommer att finnas en domare från varje stad, som kommer att besluta om poängfördelningen. I slutet av dagen kommer vinnaren av 2023 års mästerskap i vetenskap att tillkännages!"
 }

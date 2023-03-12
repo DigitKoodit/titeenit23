@@ -8,5 +8,12 @@
     "x-days-from-now": "{{days, number}} päivän päästä",
     "something-went-wrong": "Jotain meni pieleen 😞",
     "event-info-text": "Vuoden odotetuin tapahtuma tietotekniikan opiskelijoille",
-    "event-info-text-2": "Viikonloppu täynnä kisailua, verkostoitumista ja hauskanpitoa. Tule mukaan!"
+    "event-info-text-2": "Viikonloppu täynnä kisailua, verkostoitumista ja hauskanpitoa. Tule mukaan!",
+    "online_challenge": "Nettilaji",
+    "info": "Missä, mitä, häh?",
+    "schedule": "Aikataulu",
+    "sponsors": "Yhteistyökumppanit",
+    "main_sponsor": "Pääyhteistyökumppani",
+    "info_content": "Titeenit eli Titeenien Taistot, on kaikki Suomen tietoteekkarikillat yhteenkokoava tapahtuma. Titeenit järjestetään joka vuosi eri kaupungissa, ja tänä vuonna Turku on saanut kunnian järjestää nämä kisat. \n\r \n\r \n\r Titeeniviikonloppu starttaa perjantaina yhteisellä hengailulla ja tutustumisella. Tapahtuman pääosassa ovat kuitenkin lauantain Titeenilajit, joissa tietoteekkarikaupungit kisaavat vastakkain toinen toistaan kinkkisimmissä kilpailuissa. Tuomareita tulee yksi jokaisesta kaupungista, ja he päättävät pisteiden jakautumisen. Päivä huipentuu jatkobileisiin, joissa julistetaan vuoden 2023 Titeenien Taistojen voittaja! ",
+    "place": "Paikka"
 }
