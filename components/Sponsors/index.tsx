@@ -29,7 +29,7 @@ export const SponsorSection = ({
   return (
     <div ref={ref} className="text-center">
       <div>
-        <h2>{t('main_sponsor')}</h2>
+        <h2 id="sponsors">{t('main_sponsor')}</h2>
         <div className="relative w-full h-60 z-10">
           <Image src="/images/gofore_logo_orange.svg" alt="gofore_logo" fill />
         </div>

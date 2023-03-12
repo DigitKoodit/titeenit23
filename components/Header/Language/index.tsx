@@ -35,8 +35,8 @@ export const LanguageSelector = ({
       {isOpen && (
         <div
           className={`${
-            isHeaderVisible ? 'sm:bg-white rounded border border-gray-500' : ''
-          } flex flex-col font-mono items-end sm:items-center absolute top-14 w-max sm:px-8 text-right`}
+            isHeaderVisible ? 'bg-white rounded border border-gray-500' : ''
+          } flex flex-col font-mono items-end sm:items-center absolute top-14 w-max px-4 sm:px-8 text-right`}
         >
           {locales &&
             locales

@@ -78,24 +78,23 @@ export const Header = ({ active }: { active: string }) => {
         setOpen={setOpen}
         color={open || hasScrolled ? 'dark' : 'light'}
       />
+      {/* <HeaderLink href="#online_challenge" active={active} open={open}>
+        {t('online_challenge')}
+      </HeaderLink> */}
+      <HeaderLink href="#info" active={active} open={open}>
+        {t('info')}
+      </HeaderLink>
+      <HeaderLink href="#schedule" active={active} open={open}>
+        {t('schedule')}
+      </HeaderLink>
+      <HeaderLink href="#sponsors" active={active} open={open}>
+        {t('sponsors')}
+      </HeaderLink>
       <HeaderLink
-        id="online_challenge"
-        href="#nettilaji"
+        href="https://t.me/+j-1_FWlm5l5iYTQ0"
         active={active}
         open={open}
       >
-        {t('online_challenge')}
-      </HeaderLink>
-      <HeaderLink id="info" href="#nettilaji" active={active} open={open}>
-        {t('info')}
-      </HeaderLink>
-      <HeaderLink id="schedule" href="#nettilaji" active={active} open={open}>
-        {t('schedule')}
-      </HeaderLink>
-      <HeaderLink id="sponsors" href="#nettilaji" active={active} open={open}>
-        {t('sponsors')}
-      </HeaderLink>
-      <HeaderLink href="#nettilaji" active={active} open={open}>
         <Telegram color={open ? '#333' : '#fff'} />
         Telegram
       </HeaderLink>

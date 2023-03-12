@@ -197,7 +197,9 @@ export const ScheduleSection = ({
       ref={ref}
       className="mx-16 flex-grow overflow-hidden min-h-screen w-full"
     >
-      <h2 className="text-center">{t('schedule')}</h2>
+      <h2 id="schedule" className="text-center">
+        {t('schedule')}
+      </h2>
       <div className="w-full flex space-x-4 text-left h-[700px] overflow-scroll">
         <div className="relative p-4 flex-1 w-full">
           <Timetable

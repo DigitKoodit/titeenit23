@@ -20,6 +20,7 @@ import {
   getDefaultDayLabel,
   getEventPositionStyles,
   getRowHeight,
+  isOverlapping,
 } from './utils';
 import type { Event } from './types';
 import { useTranslation } from 'next-i18next';
@@ -34,7 +35,7 @@ export const DayHeaderPreview: React.FC<DayHeaderPreviewProps> = ({
   return (
     <div
       {...otherProperties}
-      style={{ ...(otherProperties?.style || {}), height: `80px` }}
+      style={{ ...(otherProperties?.style || {}), height: `160px` }}
     >
       {getDefaultDayLabel(day)}
     </div>
@@ -59,7 +60,7 @@ const EventModal = ({
   placeLink,
 }: {
   time: string;
-  hide: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  hide: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 } & Partial<Event>) => {
   const { t } = useTranslation('common');
 
@@ -70,15 +71,17 @@ const EventModal = ({
         onClick={(e) => hide(e)}
       />
       <div className="p-8 bg-white z-20 text-black flex flex-col space-y-4 w-96">
-        <button className=" self-end">Close</button>
+        <button className="self-end" onClick={(e) => hide(e)}>
+          ❌
+        </button>
         <div className="space-y-2">
           <h3 className="text-black">{name}</h3>
           <p className="text-black">
             {t('time')}: {time}
           </p>
-          <p className="text-black">
+          <a className="text-blue-700 underline" href={placeLink}>
             {t('place')}: {place}
-          </p>
+          </a>
           <p className="text-black">{description?.long}</p>
         </div>
       </div>
@@ -96,6 +99,11 @@ export const EventPreview: React.FC<EventPreviewProps> = ({
   return (
     <div
       {...defaultAttributes}
+      style={{
+        ...(defaultAttributes?.style || {}),
+        width: event.position ? `50%` : '100%',
+        left: event.position === 'left' ? `0` : '50%',
+      }}
       title={event.name}
       key={event.id}
       onClick={() => {
@@ -117,7 +125,7 @@ export const EventPreview: React.FC<EventPreviewProps> = ({
             event.endTime,
             'HH:mm'
           )}`}
-          hide={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+          hide={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
             e.stopPropagation();
             setIsExpanded(false);
           }}
@@ -174,8 +182,8 @@ const DayColumnPreview = ({
       className={`${classNames.day} ${day} ${bodyAttributes?.className || ''}`}
       style={{
         ...(bodyAttributes?.style || {}),
-        backgroundSize: `1px ${rowHeight}px`,
-        width: `33%`,
+        backgroundSize: `1px ${320}px`,
+        width: `50%`,
       }}
       key={`${day}-${index}`}
     >
@@ -207,13 +215,13 @@ export const HoursList = ({
     renderHour({
       hour: `${hour}:00`,
       className: classNames.hour,
-      style: { minHeight: `40px` },
+      style: { minHeight: `160px` },
     })
   );
 };
 
 export const TimeTable = ({
-  events,
+  events: initialEvents,
   hoursInterval = DEFAULT_HOURS_INTERVAL,
   timeLabel = 'Time',
   renderDayHeader = DayHeaderPreview,
@@ -257,6 +265,29 @@ export const TimeTable = ({
     }
   }, [hoursInterval, dimensions]);
 
+  const events = React.useMemo(() => {
+    // check if two events are overlapping, if they are add left or right attribute to them
+    const eventsWithPosition = Object.keys(initialEvents).reduce(
+      (acc, day) => ({
+        ...acc,
+        [day]: initialEvents[day].map((event) => {
+          const overlappingEvents = initialEvents[day].filter((e) =>
+            isOverlapping(event, e)
+          );
+          if (overlappingEvents.length === 0) return event;
+          return {
+            ...event,
+            position:
+              overlappingEvents?.[0]?.id === event.id ? 'left' : 'right',
+          };
+        }),
+      }),
+      {}
+    );
+
+    return eventsWithPosition;
+  }, [initialEvents]);
+
   return (
     <div
       {...otherProperties}
@@ -271,7 +302,7 @@ export const TimeTable = ({
           }`}
           style={{
             ...(headerAttributes?.style || {}),
-            minHeight: `80px`,
+            minHeight: `160px`,
           }}
         >
           {timeLabel}
