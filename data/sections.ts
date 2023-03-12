@@ -2,6 +2,7 @@ import { Item } from 'components/Section';
 import { TFunction } from 'next-i18next';
 
 export const sections = (t: TFunction): Record<string, Item[]> => ({
+  /*
   online_challenge: [
     {
       type: 'markdown',
@@ -30,6 +31,7 @@ export const sections = (t: TFunction): Record<string, Item[]> => ({
       height: 255,
     },
   ],
+  */
   info: [
     {
       type: 'markdown',

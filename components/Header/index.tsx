@@ -78,9 +78,9 @@ export const Header = ({ active }: { active: string }) => {
         setOpen={setOpen}
         color={open || hasScrolled ? 'dark' : 'light'}
       />
-      <HeaderLink href="#online_challenge" active={active} open={open}>
+      {/* <HeaderLink href="#online_challenge" active={active} open={open}>
         {t('online_challenge')}
-      </HeaderLink>
+      </HeaderLink> */}
       <HeaderLink href="#info" active={active} open={open}>
         {t('info')}
       </HeaderLink>
