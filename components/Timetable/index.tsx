@@ -79,9 +79,9 @@ const EventModal = ({
           <p className="text-black">
             {t('time')}: {time}
           </p>
-          <p className="text-black">
+          <a className="text-blue-700 underline" href={placeLink}>
             {t('place')}: {place}
-          </p>
+          </a>
           <p className="text-black">{description?.long}</p>
         </div>
       </div>
