@@ -205,7 +205,7 @@ export const ScheduleSection = ({
           <Timetable
             className="w-full"
             events={events}
-            hoursInterval={{ from: 0, to: 24 }}
+            hoursInterval={{ from: 8, to: 24 }}
           />
         </div>
       </div>
