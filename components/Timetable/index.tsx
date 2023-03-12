@@ -59,7 +59,7 @@ const EventModal = ({
   placeLink,
 }: {
   time: string;
-  hide: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  hide: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 } & Partial<Event>) => {
   const { t } = useTranslation('common');
 
@@ -70,7 +70,9 @@ const EventModal = ({
         onClick={(e) => hide(e)}
       />
       <div className="p-8 bg-white z-20 text-black flex flex-col space-y-4 w-96">
-        <button className=" self-end">Close</button>
+        <button className="self-end" onClick={(e) => hide(e)}>
+          ❌
+        </button>
         <div className="space-y-2">
           <h3 className="text-black">{name}</h3>
           <p className="text-black">
