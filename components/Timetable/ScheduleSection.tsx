@@ -66,21 +66,6 @@ export const ScheduleSection = ({
                   placeLink: 'https://www.google.com',
                 },
               ],
-              sunday: [
-                {
-                  id: 3,
-                  name: 'Laji 3',
-                  type: 'custom',
-                  startTime: new Date('2018-02-23T14:30:00'),
-                  endTime: new Date('2018-02-23T20:30:00'),
-                  description: {
-                    short: 'Kuvaus tämä on testi123',
-                    long: 'Kuvaus tämä on testi123',
-                  },
-                  place: 'Paikka',
-                  placeLink: 'https://www.google.com',
-                },
-              ],
             }}
             hoursInterval={{ from: 0, to: 24 }}
           />

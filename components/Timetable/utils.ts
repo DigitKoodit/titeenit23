@@ -33,8 +33,7 @@ export const getEventPositionStyles = ({
   const minutes = round(differenceInMinutes(event.endTime, event.startTime));
 
   return {
-    height: (minutes * (rowHeight / 2)) / 60 + 'px',
-    marginTop:
-      (minutesFromStartOfDay * (rowHeight / 2)) / 60 + rowHeight + 'px',
+    height: (minutes * (320 / 2)) / 60 + 'px',
+    marginTop: (minutesFromStartOfDay * (320 / 2)) / 60 + 160 + 'px',
   };
 };
