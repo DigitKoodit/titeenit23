@@ -20,6 +20,7 @@ import {
   getDefaultDayLabel,
   getEventPositionStyles,
   getRowHeight,
+  isOverlapping,
 } from './utils';
 import type { Event } from './types';
 import { useTranslation } from 'next-i18next';
@@ -98,6 +99,11 @@ export const EventPreview: React.FC<EventPreviewProps> = ({
   return (
     <div
       {...defaultAttributes}
+      style={{
+        ...(defaultAttributes?.style || {}),
+        width: event.position ? `50%` : '100%',
+        left: event.position === 'left' ? `0` : '50%',
+      }}
       title={event.name}
       key={event.id}
       onClick={() => {
@@ -215,7 +221,7 @@ export const HoursList = ({
 };
 
 export const TimeTable = ({
-  events,
+  events: initialEvents,
   hoursInterval = DEFAULT_HOURS_INTERVAL,
   timeLabel = 'Time',
   renderDayHeader = DayHeaderPreview,
@@ -258,6 +264,29 @@ export const TimeTable = ({
       );
     }
   }, [hoursInterval, dimensions]);
+
+  const events = React.useMemo(() => {
+    // check if two events are overlapping, if they are add left or right attribute to them
+    const eventsWithPosition = Object.keys(initialEvents).reduce(
+      (acc, day) => ({
+        ...acc,
+        [day]: initialEvents[day].map((event) => {
+          const overlappingEvents = initialEvents[day].filter((e) =>
+            isOverlapping(event, e)
+          );
+          if (overlappingEvents.length === 0) return event;
+          return {
+            ...event,
+            position:
+              overlappingEvents?.[0]?.id === event.id ? 'left' : 'right',
+          };
+        }),
+      }),
+      {}
+    );
+
+    return eventsWithPosition;
+  }, [initialEvents]);
 
   return (
     <div

@@ -17,7 +17,6 @@ export const getDefaultDayLabel = (day: string) => upperCase(day);
 export const getEventPositionStyles = ({
   event,
   hoursInterval,
-  rowHeight,
 }: {
   event: Event;
   hoursInterval: typeof DEFAULT_HOURS_INTERVAL;
@@ -36,4 +35,11 @@ export const getEventPositionStyles = ({
     height: (minutes * (320 / 2)) / 60 + 'px',
     marginTop: (minutesFromStartOfDay * (320 / 2)) / 60 + 160 + 'px',
   };
+};
+
+export const isOverlapping = (a: Event, b: Event) => {
+  return (
+    a.startTime.getTime() < b.endTime.getTime() &&
+    b.startTime.getTime() < a.endTime.getTime()
+  );
 };

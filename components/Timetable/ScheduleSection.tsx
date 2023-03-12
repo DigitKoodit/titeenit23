@@ -1,6 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import Timetable from '.';
+import { isOverlapping } from './utils';
 
 export const ScheduleSection = ({
   setIntersection,
@@ -60,6 +61,19 @@ export const ScheduleSection = ({
                   type: 'custom',
                   startTime: new Date('2018-02-23T04:30:00'),
                   endTime: new Date('2018-02-23T08:30:00'),
+                  description: {
+                    short: 'Kuvaus tämä on testi123',
+                    long: 'Kuvaus tämä on testi123',
+                  },
+                  place: 'Paikka',
+                  placeLink: 'https://www.google.com',
+                },
+                {
+                  id: 3,
+                  name: 'Laji 2',
+                  type: 'custom',
+                  startTime: new Date('2018-02-23T03:30:00'),
+                  endTime: new Date('2018-02-23T06:30:00'),
                   description: {
                     short: 'Kuvaus tämä on testi123',
                     long: 'Kuvaus tämä on testi123',
