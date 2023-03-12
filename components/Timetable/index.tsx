@@ -119,7 +119,7 @@ export const EventPreview: React.FC<EventPreviewProps> = ({
             event.endTime,
             'HH:mm'
           )}`}
-          hide={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+          hide={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
             e.stopPropagation();
             setIsExpanded(false);
           }}
