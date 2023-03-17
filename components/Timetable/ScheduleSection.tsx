@@ -1,3 +1,4 @@
+import { Schedule } from 'components/Schedule';
 import { useTranslation } from 'next-i18next';
 import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import Timetable from '.';
@@ -20,7 +21,7 @@ const events: Events = {
       id: 2,
       name: 'Jatkot',
       startTime: new Date('2023-03-17T23:00:00'),
-      endTime: new Date('2023-03-18T00:00:00'),
+      endTime: new Date('2023-03-18T03:00:00'),
       description: emptyDescription,
       place: 'Night Club Marilyn',
       placeLink: 'https://goo.gl/maps/JzBUxw3UiB7eYLGYA',
@@ -158,7 +159,7 @@ Tldr: Me ruokimme sinut ja meillä on mukavaa!`,
       id: 13,
       name: 'TiTeenibileet',
       startTime: new Date('2023-03-18T22:30'),
-      endTime: new Date('2023-03-19T00:00'),
+      endTime: new Date('2023-03-19T03:00'),
       description: {
         short: 'Yllätysesiintyjä hymnin jälkeen',
         long: 'Jatkoilla voittajan julkistus ja yllätysesiintyjä :o',
@@ -200,13 +201,9 @@ export const ScheduleSection = ({
       <h2 id="schedule" className="text-center">
         {t('schedule')}
       </h2>
-      <div className="w-full flex space-x-4 text-left h-[700px] overflow-scroll">
+      <div className="w-full flex space-x-4 text-left">
         <div className="relative p-4 flex-1 w-full">
-          <Timetable
-            className="w-full"
-            events={events}
-            hoursInterval={{ from: 8, to: 24 }}
-          />
+          <Schedule data={events} />
         </div>
       </div>
     </div>

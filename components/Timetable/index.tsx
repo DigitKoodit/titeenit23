@@ -51,7 +51,7 @@ export const HourPreview: React.FC<HourPreviewProps> = ({
   </div>
 );
 
-const EventModal = ({
+export const EventModal = ({
   hide,
   description,
   name,
