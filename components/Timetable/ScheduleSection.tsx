@@ -1,3 +1,4 @@
+import { Schedule } from 'components/Schedule';
 import { useTranslation } from 'next-i18next';
 import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import Timetable from '.';
@@ -202,11 +203,7 @@ export const ScheduleSection = ({
       </h2>
       <div className="w-full flex space-x-4 text-left h-[700px] overflow-scroll">
         <div className="relative p-4 flex-1 w-full">
-          <Timetable
-            className="w-full"
-            events={events}
-            hoursInterval={{ from: 8, to: 24 }}
-          />
+          <Schedule data={events} />
         </div>
       </div>
     </div>
