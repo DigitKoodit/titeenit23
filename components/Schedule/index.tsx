@@ -8,10 +8,7 @@ const Row = (event: Event) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div
-        className="flex flex-row justify-between"
-        onClick={() => setOpen(true)}
-      >
+      <div className="flex flex-row justify-between">
         <div className="w-1/4">
           <h4>{event.name}</h4>
           <a className="w-1/4 underline" href={event.placeLink}>
