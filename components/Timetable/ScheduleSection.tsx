@@ -201,7 +201,7 @@ export const ScheduleSection = ({
       <h2 id="schedule" className="text-center">
         {t('schedule')}
       </h2>
-      <div className="w-full flex space-x-4 text-left h-[700px] overflow-scroll">
+      <div className="w-full flex space-x-4 text-left">
         <div className="relative p-4 flex-1 w-full">
           <Schedule data={events} />
         </div>
