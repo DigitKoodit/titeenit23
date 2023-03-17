@@ -13,6 +13,7 @@ export const sections = (t: TFunction): Record<string, Item[]> => ({
       alt: 'Online Challenge',
       width: 427,
       height: 255,
+      link: 'https://peli.titeen.it/',
     },
   ],
   info: [

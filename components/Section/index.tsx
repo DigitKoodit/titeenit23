@@ -25,6 +25,7 @@ type ImageItem = {
   alt: string;
   width?: number;
   height?: number;
+  link?: string;
 };
 
 export type Item = LinkItem | TextItem | MarkdownItem | ImageItem;
@@ -39,13 +40,15 @@ interface SectionProps {
 const ItemRenderer = ({ item }: { item: Item }) => {
   if (item.type === 'image') {
     return (
-      <Image
-        src={item.url}
-        alt={item.alt}
-        fill={!item.height && !item.width}
-        height={item.height}
-        width={item.width}
-      />
+      <a href={item.link}>
+        <Image
+          src={item.url}
+          alt={item.alt}
+          fill={!item.height && !item.width}
+          height={item.height}
+          width={item.width}
+        />
+      </a>
     );
   }
 
