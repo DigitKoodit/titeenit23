@@ -1,23 +1,30 @@
-# Next.js + Tailwind CSS Example
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+# silenius.dev
 
-## Deploy your own
+Website for a student event Titeenien Taistot 2023. The event gathered together 350 information technology students all over Finland to Turku.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+This website contains general information for the event, the schedule and the sponsors.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+> Titeenit, or the Battle of the Titens, is an event that brings together all the information technology guilds in Finland. Titeenit are held in a different city every year, and this year Turku has the honor of hosting the event. The weekend will kick off on Friday with a day of hanging out and getting to know each other. The main event, however, will be Saturday's Titeeni-events, where the IT- towns will compete against each other in the most tricky competitions. There will be one judge from each city, who will decide on the distribution of points. At the end of the day, the winner of the 2023 Battle of Titens will be announced!
 
-## How to use
+## Tech Stack
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+Built with TypeScript, React and Next.js
+
+Shipped with Vercel
+  
+## Installation
+
+Clone the repository in your preferred way.  
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
+  cd titeenit23
+  npm ci
+  npm run dev
 ```
+    
+Open http://localhost:3000 with your browser to see the result.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
