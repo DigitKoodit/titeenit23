@@ -1,5 +1,5 @@
 
-# silenius.dev
+# Titeenien Taistot 2023
 
 Website for a student event Titeenien Taistot 2023. The event gathered together 350 information technology students all over Finland to Turku.
 
